@@ -29,14 +29,7 @@ A two-semester team project to design, simulate, build and test the centrifugal 
 
 The previous year's team had chosen an axial compressor, copied from fighter-jet engines. At RC scale, a single centrifugal stage is the standard choice, so we restarted from a benchmark of commercial micro-turbojets (JetCat P100-RX, P160 RXi-B and P300-PRO). Their pressure ratios range from 2.9 to 3.55, with peak speeds of 105,000–154,000 rpm.
 
-A dimensional analysis (Vaschy-Buckingham) reduced the six governing quantities (diameter, length, speed, mass flow, inlet and outlet pressure) to four dimensionless groups:
-
-$$
-\pi_1 = \frac{P_s}{P_e}, \qquad
-\pi_2 = \frac{N}{\sqrt{\gamma P_e / \rho}}, \qquad
-\pi_3 = \frac{\rho N D_{ext}}{\mu}, \qquad
-\pi_4 = \gamma
-$$
+A dimensional analysis (Vaschy-Buckingham) reduced the six governing quantities (diameter, length, speed, mass flow, inlet and outlet pressure) to four dimensionless groups.
 
 Their values across the benchmark were consistent, so we scaled from the **JetCat P300-PRO**: a pressure ratio of **3.5**, a mass flow of **0.5 kg/s** and a speed of **105,000 rpm**.
 
@@ -44,7 +37,7 @@ Their values across the benchmark were consistent, so we scaled from the **JetCa
 
 The impeller geometry came from Vista CCD, a meanline design tool by PCA Engineers, using design rules from the IMechE literature:
 
-- **Inlet blade angle** $\beta_1 = 60°$, the optimum for maximum mass flow near Mach 0.55, rather than 80° for a static compressor, since the engine is meant to fly.
+- **Inlet blade angle** of 60°, the optimum for maximum mass flow near Mach 0.55, rather than 80° for a static compressor, since the engine is meant to fly.
 - **10° backsweep** at the trailing edge, which delays surge. The benchmark engines use the same value.
 - **7 main blades and 7 splitter blades**, 2 mm thick, limited by what a 5-axis ball-end mill could machine at this scale. 1.5 mm fillets match a 1.5 mm ball-end tool.
 - **20 mm hub** for the shaft, 0.1 mm tip clearance and an axial length of half the diameter, giving an **86 mm** rotor.
@@ -66,17 +59,7 @@ Because printing cannot hold a 0.1 mm tip gap, the printed version has a shroud 
     The open impeller with splitter blades, the shrouded version for printing, and the 20-vane diffuser stator (3DExperience).
 </div>
 
-The **stator** turns the swirling flow leaving the rotor back towards the axis. Its 20 guide vanes were set from the outlet velocity triangle at 100,000 rpm, assuming constant mass flow, no losses and flow that follows the blades:
-
-$$
-U_2 = R_{ext}\,\omega = 0.043 \times 100\,000 \times \tfrac{2\pi}{60} \approx 451~\text{m/s}
-$$
-
-$$
-C_r = \frac{\dot m}{\rho\, S_{out}} \approx 90~\text{m/s}, \qquad
-C_2 = \sqrt{C_r^2 + \left(U_2 - C_r \sin 10°\right)^2} \approx 444~\text{m/s}, \qquad
-\alpha = \arctan\frac{C_r}{C_2} \approx 11.5°
-$$
+The **stator** turns the swirling flow leaving the rotor back towards the axis. Its 20 guide vanes were set from the outlet velocity triangle at 100,000 rpm, assuming constant mass flow, no losses and flow that follows the blades.
 
 The stator's flow area was kept constant along the passage as the radius changes.
 
@@ -86,7 +69,7 @@ To keep the computation tractable, we simulated **a single blade passage** and u
 
 - **Boundary conditions:** stagnation inlet at 1 bar (air at rest), pressure outlet.
 - **Physics:** steady, coupled, ideal gas, **k-ω SST** turbulence (k-ε is unsuited to this flow).
-- **Mesh:** polyhedral cells with a 0.2 mm base size and prism layers in the boundary layer, keeping **$y^+ < 5$** over almost all walls. Coarser 1 mm and 0.5 mm meshes diverged. 500 iterations took about 3 hours.
+- **Mesh:** polyhedral cells with a 0.2 mm base size and prism layers in the boundary layer, keeping **y+ below 5** over almost all walls. Coarser 1 mm and 0.5 mm meshes diverged. 500 iterations took about 3 hours.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -103,17 +86,11 @@ To keep the computation tractable, we simulated **a single blade passage** and u
     One blade passage: the boundary-layer mesh, the velocity field (rising radially to the outlet) and the total pressure field.
 </div>
 
-The mean outlet pressure converged to **3.31 bar** for a 3.5 bar target, about 5% low. The mean outlet velocity was 581 m/s. Residuals stalled between $10^{-1}$ and $10^{-2}$, short of the usual target, but they no longer diverged. The mesh met Star-CCM+'s skewness and volume-change criteria, so we treated the result as a reasonable first validation of the design.
+The mean outlet pressure converged to **3.31 bar** for a 3.5 bar target, about 5% low. The mean outlet velocity was 581 m/s. Residuals stalled between 10⁻¹ and 10⁻², short of the usual target, but they no longer diverged. The mesh met Star-CCM+'s skewness and volume-change criteria, so we treated the result as a reasonable first validation of the design.
 
 ## 4. Structural check (Abaqus)
 
-We also modelled a quarter of an aluminium rotor in Abaqus, under the 3.5 bar internal pressure and centrifugal loading. We ran 11 cases from 1,000 to 100,000 rpm. The stress grew linearly with speed, but peaked at only 0.016 MPa. A hand calculation shows this cannot be right: 10 g of blade at $r = 43$ mm and 100,000 rpm gives
-
-$$
-F = m\,\omega^2 r \approx 0.01 \times (10\,472)^2 \times 0.043 \approx 47~\text{kN}
-$$
-
-which is about 470 MPa on a 10 mm² section, beyond the yield strength of most aluminium alloys. We concluded that the load or unit setup in Abaqus was wrong, and listed this as an open issue rather than a result.
+We also modelled a quarter of an aluminium rotor in Abaqus, under the 3.5 bar internal pressure and centrifugal loading. We ran 11 cases from 1,000 to 100,000 rpm. The stress grew linearly with speed, but peaked at only 0.016 MPa. A hand calculation shows this cannot be right: 10 g of blade at a radius of 43 mm and 100,000 rpm gives a force of about 47 kN, which is about 470 MPa on a 10 mm² section, beyond the yield strength of most aluminium alloys. We concluded that the load or unit setup in Abaqus was wrong, and listed this as an open issue rather than a result.
 
 <div class="row mt-3">
     <div class="col-sm-8 mt-3 mt-md-0 mx-auto">
@@ -145,11 +122,7 @@ The rotor, stator, casing and motor mount were printed in PLA, and the parts in 
     Left: the printed stator and shrouded rotor. Right: the assembly with the motor and ESC mounted above the rotor.
 </div>
 
-**Drive.** An iFlight XING-E Pro 2207 1800KV brushless motor runs from a LiPo through a Hobbywing XRotor 45A ESC. An Arduino reads a potentiometer and outputs the PWM command. The power estimate showed that this motor cannot reach the 100,000 rpm design point, so the bench was always meant to test at reduced speed. Speed is estimated from the command:
-
-$$
-\text{RPM} = \frac{\text{PWM} - 1000}{1000} \times V_{bat} \times K_V, \qquad \text{PWM} \in [1000, 2000]
-$$
+**Drive.** An iFlight XING-E Pro 2207 1800KV brushless motor runs from a LiPo through a Hobbywing XRotor 45A ESC. An Arduino reads a potentiometer and outputs the PWM command. The power estimate showed that this motor cannot reach the 100,000 rpm design point, so the bench was always meant to test at reduced speed. Speed is estimated from the PWM command, the battery voltage and the motor KV rating.
 
 **Measurement.** An MPX700DP differential pressure sensor with an op-amp stage feeds the Arduino. It was calibrated from 0 to 3 bar against the manometer of the lab's air compressor and stayed within 5% of the reference.
 
@@ -178,7 +151,7 @@ Each test point holds a fixed speed command and records the pressure rise. We ra
     Pressure rise against estimated rotor speed for the three runs, after zero-offset correction. The dashed line is a quadratic through zero and the 3.5 bar, 100,000 rpm design point.
 </div>
 
-All three runs show real compression, reaching 0.15–0.18 bar at the top speed, and they follow the expected $\Delta P \propto N^2$ trend closely. The tested range is still only the first fifth of the design speed, so this supports the design without proving the 3.5 bar target.
+All three runs show real compression, reaching 0.15–0.18 bar at the top speed, and they follow the expected quadratic trend closely. The tested range is still only the first fifth of the design speed, so this supports the design without proving the 3.5 bar target.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -195,26 +168,26 @@ With the compressor sized, we started the combustion chamber using the **Melconi
 
 | Quantity | Value |
 |---|---|
-| Reference area $A_{ref}$ | 0.0128 m² |
+| Reference area | 0.0128 m² |
 | Casing diameters (outer / inner) | 130 mm / 24 mm |
 | Liner diameters (outer / inner) | 112 mm / 42 mm |
-| Reference velocity $U_{ref}$ | 21.6 m/s (Mach 0.31) |
-| Liner length $L_L$ | 117 mm |
+| Reference velocity | 21.6 m/s (Mach 0.31) |
+| Liner length | 117 mm |
 | Primary / secondary / dilution zones | 26 / 17.5 / 60 mm |
 
 <div class="row mt-3">
-    <div class="col-sm-5 mt-3 mt-md-0">
+    <div class="col-12 mx-auto mt-3" style="max-width: 450px;">
         {% include figure.liquid loading="eager" path="assets/img/projects/turbo-combustor-schematic.jpg" title="Combustor airflow" class="img-fluid rounded z-depth-1" %}
+        <div class="caption">Airflow split through the primary, secondary and dilution zones.</div>
     </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
+    <div class="col-12 mx-auto mt-3" style="max-width: 280px;">
         {% include figure.liquid loading="eager" path="assets/img/projects/turbo-combustor-cad.jpg" title="Liner CAD" class="img-fluid rounded z-depth-1" %}
+        <div class="caption">First CAD of the perforated liner.</div>
     </div>
-    <div class="col-sm-3 mt-3 mt-md-0">
+    <div class="col-12 mx-auto mt-3" style="max-width: 220px;">
         {% include figure.liquid loading="eager" path="assets/img/projects/turbo-engine-cad.jpg" title="Compressor and combustor" class="img-fluid rounded z-depth-1" %}
+        <div class="caption">The compressor stacked on the combustion chamber.</div>
     </div>
-</div>
-<div class="caption">
-    Airflow split through the primary, secondary and dilution zones; first CAD of the perforated liner; and the compressor stacked on the combustion chamber.
 </div>
 
 Fuel injection and the turbine were left open, since both depend on measured compressor outlet conditions that only a metal prototype could provide.

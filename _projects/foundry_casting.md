@@ -30,8 +30,8 @@ We took a bird-feeder base (a thin dish with two helical arms) from CAD to a rea
 **Design and simulation**
 
 - Compared pouring orientations in QuikCAST and kept the one that moved shrinkage away from the thin screw boss, then thickened that boss so it could take a feeder.
-- Sized three cylindro-spherical feeders with the modulus, volumetric-shrinkage and feeding-distance rules ($$V_{feeder} \geq R\,S\,V_{part}$$, with $$R = 5.5\%$$).
-- Sized a two-ingate gating system: filling time from the thinnest section ($$M' = 1.16$$ mm, $$t_r \approx 1.4$$ s), then iterated on hydraulic efficiency to get the sprue section.
+- Sized three cylindro-spherical feeders with the modulus, volumetric-shrinkage and feeding-distance rules.
+- Sized a two-ingate gating system: filling time from the thinnest section (1.16 mm, filling time of about 1.4 s), then iterated on hydraulic efficiency to get the sprue section.
 - Re-simulated the full layout: the cavity fills in about 1.5 s with the metal still 38 °C above the liquidus, and solidification ends inside the feeders.
 
 <img src="/assets/img/projects/foundry-quikcast.jpg" alt="QuikCAST solid-fraction simulation of the part"

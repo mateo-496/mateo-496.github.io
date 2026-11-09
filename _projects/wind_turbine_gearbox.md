@@ -24,8 +24,8 @@ We designed the gearbox that sits between the rotor and the generator of a **200
 
 ## Architecture
 
-- **Planetary stage** (sun Z=23, 3 planets Z=43, ring Z=109, module 8 mm) driven by the planet carrier, ratio $$1 + \frac{109}{23} \approx 5.74$$.
-- **Two parallel spur stages** (57/21 and 63/19), ratio $$\frac{57}{21}\cdot\frac{63}{19} = 9$$.
+- **Planetary stage** (sun Z=23, 3 planets Z=43, ring Z=109, module 8 mm) driven by the planet carrier, ratio of about 5.74.
+- **Two parallel spur stages** (57/21 and 63/19), combined ratio of 9.
 - **Overall speed-up ≈ 51.7**, so 3,025 rpm at the generator for ≈ 58.6 rpm at the rotor.
 - Hollow sun and carrier shafts, so a 60 mm rod can pass through the whole gearbox along its axis.
 - Sealing with lip seals, flat gaskets and a V-ring; splash lubrication with fill/drain plugs and an oil-level gauge.
