@@ -3,7 +3,7 @@ layout: page
 title: Reed-Solomon codes
 description: TIPE presentation (in French) on the principle and use of Reed-Solomon error-correcting codes
 importance: 3
-category: /research
+category: /maths
 related_publications: false
 ---
 
