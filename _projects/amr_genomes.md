@@ -3,7 +3,7 @@ layout: page
 title: Predicting antibiotic resistance from genomes
 description: 3rd of 39 in the INF8245 Kaggle competition, with a calibrated gradient boosting ensemble
 importance: 2
-category: /ML
+category: /ML&AI
 related_publications: false
 ---
 

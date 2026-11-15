@@ -3,7 +3,7 @@ layout: page
 title: ESC-50 sound classification demo
 description: A self-taught end-to-end deep learning project, deployed as a live web app
 importance: 3
-category: /ML
+category: /ML&AI
 related_publications: false
 ---
 

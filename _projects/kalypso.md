@@ -31,7 +31,7 @@ The pricing translated directly into market share. The team ranked 2nd of 11 on 
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/kalypso_pricing.png" title="Pricing and market share" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/projects/kalypso_pricing.png" title="Pricing and market share" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -42,7 +42,7 @@ The team also led the simulator's combined scorecards in every quarter. It was 1
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/kalypso_cover.png" title="Combined scorecards" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/projects/kalypso_cover.png" title="Combined scorecards" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -55,7 +55,7 @@ The team also led the simulator's combined scorecards in every quarter. It was 1
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/kalypso_financials.png" title="Full-year results" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/projects/kalypso_financials.png" title="Full-year results" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">

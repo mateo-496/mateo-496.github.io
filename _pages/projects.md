@@ -5,7 +5,7 @@ permalink: /projects/
 description:
 nav: true
 nav_order: 2
-display_categories: [/research, /ML, /engineering, /maths, /business]
+display_categories: [/research, /ML&AI, /engineering, /maths, /business]
 horizontal: false
 ---
 
