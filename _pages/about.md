@@ -39,4 +39,5 @@ See my projects, or get in touch below.
 <style>
   .social .contact-icons { font-size: 1.75rem !important; }
   .social .contact-note { font-size: 0.85rem; }
+  .profile .more-info p { display: block; }
 </style>
