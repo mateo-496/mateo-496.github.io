@@ -1,0 +1,154 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> AlphaForge | Mateo Mangialomini </title> <meta name="author" content="Mateo Mangialomini"> <meta name="description" content="Multi-agent geopolitical risk review of an investment portfolio, vibe-coded in 36 hours for the PolyFinances Datathon 2026"> <meta name="keywords" content="portfolio"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="stylesheet" href="/assets/css/main.css?v=3116ba77db9ee1581d05bb3e86fbf7f1"> <link rel="canonical" href="https://mateo-496.github.io/projects/alphaforge_agentic/"> <script src="/assets/js/theme.js?v=5286c3e4c334d0ecb8fc0c40ff4fa7ec"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> <link rel="stylesheet" href="/assets/al_email_protect/css/email-protect.css"> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Mateo</span> Mangialomini </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/projects/">projects <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">repositories </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">AlphaForge</h1> <p class="post-description">Multi-agent geopolitical risk review of an investment portfolio, vibe-coded in 36 hours for the PolyFinances Datathon 2026</p> </header> <article> <ul> <li> <strong>Context:</strong> PolyFinances Datathon 2026 (November 2026), team of four, vibe-coded in 36 hours</li> <li> <strong>Role:</strong> Team lead and integrator: architecture, LLM layer, web app and pipeline</li> <li> <strong>Stack:</strong> Python, AWS Bedrock (Converse API), CloudTrail Lake, S3, FastAPI, htmx, D3, Vercel</li> </ul> <p>AlphaForge reviews the geopolitical risk of an investment portfolio and fits the review to the investor’s profile. A web form takes the holdings and a risk profile. Agents gather facts from live sources (SEC filings, Yahoo Finance, the Geopolitical Risk index, the World Bank). Code computes every number. The report explains the score and proposes changes that fit the profile.</p> <figure style="text-align:center"> <video src="/assets/video/alphaforge_demo.mp4" poster="/assets/img/projects/alphaforge-run-poster.jpg" autoplay="" muted="" loop="" playsinline="" controls="" style="width:100%; max-width:720px; border-radius:8px; border:1px solid #ddd;"></video> <figcaption>A 28-holding portfolio going through the pipeline, from market data and filings to the recommendations.</figcaption> </figure> <h2 id="design-rule-no-llm-written-number-enters-the-score">Design rule: no LLM-written number enters the score</h2> <p>Language models extract facts, such as verbatim quotes or a revenue share stated in a filing, and code verifies them before use. Every number in the score is computed by code. When a model writes numbers in its prose summary, they are checked against the facts it was given. When a source fails, the report says so instead of filling the gap.</p> <h2 id="pipeline">Pipeline</h2> <p>Ten agents, each able to fail on its own without breaking the run. Steps 2 to 4 run in parallel.</p> <ol> <li> <strong>Market data and exposure:</strong> prices, and each holding’s revenue split by country. The split comes from the best available tier: XBRL tables in the 10-K, then filing text (each share must sit in a quote that states it), then sector peers, a home-bias prior, or a returns-based regression on country ETFs. Each holding is tagged with the tier used.</li> <li> <strong>Company disclosures:</strong> an agent reads filings in a tool loop and flags which of 8 risk channels the company discloses, each backed by a verified quote.</li> <li> <strong>Macro and geopolitical risk:</strong> World Bank indicators for macro fragility, and a country hazard built from political stability and the GPR index.</li> <li> <strong>Scoring:</strong> a two-stage formula combines the three inputs, weighs each by how much of the portfolio it actually covers, and compares the result with the investor’s tolerance.</li> <li> <strong>Recommendations:</strong> code proposes swaps; an agent suggests alternatives, which code then sizes and re-scores.</li> </ol> <figure style="text-align:center"> <img src="/assets/img/projects/alphaforge-scenarios.png" alt="Scenario map showing which countries each scenario hits" style="width:100%; max-width:720px; border-radius:8px; border:1px solid #ddd;"> <figcaption>Scenarios written weekly by the scenario agent, with the share of the portfolio's revenue in the countries they hit.</figcaption> </figure> <h2 id="audit-trail">Audit trail</h2> <p>Every LLM call goes through one wrapper on Bedrock Converse. Each call records tokens in and out, input and output, written to a daily log and sent to CloudTrail Lake as a custom event, linked to AWS’s own <code class="language-plaintext highlighter-rouge">Converse</code> event by request ID. Any number in a report can be traced back to the call and source that produced it.</p> <h2 id="my-part">My part</h2> <p>I set up the project (Bedrock access, data schemas, conventions shared by the agents), built the LLM layer and the web app, wired the agents into the pipeline, and merged the four branches into the final version. I also deployed the demo on Vercel, replaying cached portfolios so it runs within serverless time limits.</p> <p>Team: Mateo Mangialomini, Cedric, Luc, Andy.</p> <p><a href="https://github.com/mateo-496/alphaforge" rel="external nofollow noopener" target="_blank">Code</a></p> </article> </div> </div> <script>document.title = "Mateo Mangialomini";</script> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/al_math/js/mathjax-setup.js"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "about",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-projects",
+          title: "projects",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/projects/";
+          },
+        },{id: "nav-publications",
+          title: "publications",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/publications/";
+          },
+        },{id: "nav-cv",
+          title: "CV",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv/";
+          },
+        },{id: "nav-repositories",
+          title: "repositories",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/repositories/";
+          },
+        },{id: "projects-alphaforge",
+          title: 'AlphaForge',
+          description: "Multi-agent geopolitical risk review of an investment portfolio, vibe-coded in 36 hours for the PolyFinances Datathon 2026",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/alphaforge_agentic/";
+            },},{id: "projects-predicting-antibiotic-resistance-from-genomes",
+          title: 'Predicting antibiotic resistance from genomes',
+          description: "3rd of 39 in the INF8245 Kaggle competition, with a calibrated gradient boosting ensemble",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/amr_genomes/";
+            },},{id: "projects-esc-50-sound-classification-demo",
+          title: 'ESC-50 sound classification demo',
+          description: "A self-taught end-to-end deep learning project, deployed as a live web app",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/esc50_demo/";
+            },},{id: "projects-aluminium-sand-casting",
+          title: 'Aluminium sand casting',
+          description: "Designing, simulating and pouring an AlSi13 bird-feeder part in a 3D-printed sand mould",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/foundry_casting/";
+            },},{id: "projects-kalypso-business-simulation",
+          title: 'Kalypso business simulation',
+          description: "Ranked 1st of 11 teams on the simulator&#39;s combined scorecards, running a virtual boat manufacturer as CEO.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/kalypso/";
+            },},{id: "projects-multi-teacher-distillation-for-edge-audio",
+          title: 'Multi-teacher distillation for edge audio',
+          description: "Confidence-weighted knowledge distillation for sound event detection on a Raspberry Pi",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/multi_teacher_kd/";
+            },},{id: "projects-reed-solomon-codes",
+          title: 'Reed-Solomon codes',
+          description: "TIPE presentation (in French) on the principle and use of Reed-Solomon error-correcting codes",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/tipe_reed_solomon/";
+            },},{id: "projects-turbo-compressor-prototype",
+          title: 'Turbo-compressor prototype',
+          description: "Centrifugal compressor for a model jet engine, from analytical design and CFD to a 3D-printed test rig",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/turbo_compressor/";
+            },},{id: "projects-wind-turbine-gearbox",
+          title: 'Wind turbine gearbox',
+          description: "Detailed design and digital mock-up of a 200 kW planetary speed-increaser in 3DEXPERIENCE/CATIA",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/wind_turbine_gearbox/";
+            },},{
+        id: 'social-cv',
+        title: 'CV',
+        section: 'Socials',
+        handler: () => {
+          window.open("/assets/pdf/MateoMangialomini.pdf", "_blank");
+        },
+      },{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%6D%61%74%65%6F%34%39%36@%70%72%6F%74%6F%6E%6D%61%69%6C.%63%6F%6D", "_blank");
+        },
+      },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/mateo-496", "_blank");
+        },
+      },{
+        id: 'social-linkedin',
+        title: 'LinkedIn',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.linkedin.com/in/mateomangialomini", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> <script defer src="/assets/al_email_protect/js/email-protect.js"></script> </body> </html>
