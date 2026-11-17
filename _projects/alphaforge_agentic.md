@@ -1,8 +1,8 @@
 ---
 layout: page
-title: AlphaForge
-description: Multi-agent geopolitical risk review of an investment portfolio, vibe-coded in 36 hours for the PolyFinances Datathon 2026
-importance: 2
+title: AlphaForge Datathon AWS x BNC
+description: Multi-agent geopolitical risk review of an investment portfolio, vibe-coded in 24 hours for the PolyFinances Datathon 2026
+importance: 5
 category: /ML&AI
 related_publications: false
 ---
@@ -48,6 +48,6 @@ Every LLM call goes through one wrapper on Bedrock Converse. Each call records t
 
 I set up the project (Bedrock access, data schemas, conventions shared by the agents), built the LLM layer and the web app, wired the agents into the pipeline, and merged the four branches into the final version. I also deployed the demo on Vercel, replaying cached portfolios so it runs within serverless time limits.
 
-Team: Mateo Mangialomini, Cedric, Luc, Andy.
+Team: Mateo Mangialomini, Cedric Vaval, Luc Moulot, Andy Koutou.
 
 [Code](https://github.com/mateo-496/alphaforge)
